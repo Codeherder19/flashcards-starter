@@ -14,11 +14,8 @@ describe('Deck', function() {
   });
 
   it(`should store the user's guess`, function() {
-    const deck = new Deck('pug');
-    expect(deck.guess).to.equal('pug');
-  });
-
-  
+    const deck = new Deck()
+  })
 
 
 });

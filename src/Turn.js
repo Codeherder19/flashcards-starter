@@ -21,4 +21,6 @@ class Turn {
   giveFeedback() {
     return this.isCorrect === true ? 'correct!' : 'incorrect!'
   }
-}
+};
+
+module.exports = Turn

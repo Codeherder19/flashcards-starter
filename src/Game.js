@@ -8,28 +8,21 @@ const Round = require('../src/Round');
 
 class Game {
   constructor() {
-    this.currentRound = 0;
+    this.currentRound = null;
     this.deck = [];
   }
 
-  createCards() {
+  startGame() {
     prototypeQuestions.forEach(flashCard => {
       let card = new Card(flashCard.id, flashCard.question, flashCard.answers, flashCard.correctAnswer);
       this.deck.push(card);
-    })
-    this.createDeck();
-  }
-
-  createDeck() {
+    });
     let deck = new Deck(this.deck);
     this.deck = deck.deck;
-    console.log(this.deck);
-  }
-
-  startGame() {
-    this.createCards();
     let round = new Round(this.deck);
-    this.currentRound++;
+    this.currentRound = round;
+    this.printMessage(deck, round);
+    this.printQuestion(round);
   }
 
   printMessage(deck, round) {
